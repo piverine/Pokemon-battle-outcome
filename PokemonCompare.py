@@ -54,13 +54,11 @@ def calculate_tas(pokemon_a, pokemon_b):
     type1_a, type2_a = pokemon_a
     type1_b, type2_b = pokemon_b
 
-    # Handle None types (single-type Pokémon)
     if type2_a is None:
-        type2_a = type1_a  # Treat it as duplicate of Type1 for averaging
+        type2_a = type1_a
     if type2_b is None:
         type2_b = type1_b
 
-    # Calculate effectiveness of A attacking B
     effectiveness_a = (
         get_effectiveness(type1_a, type1_b) + 
         get_effectiveness(type1_a, type2_b) + 
